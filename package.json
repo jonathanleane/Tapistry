@@ -1,0 +1,45 @@
+{
+  "name": "tapistry",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Privacy-first web analytics platform",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:sdk & npm run dev:dashboard",
+    "dev:sdk": "npm run dev --workspace=@tapistry/sdk",
+    "dev:edge": "npm run dev --workspace=@tapistry/edge",
+    "dev:dashboard": "npm run dev --workspace=@tapistry/dashboard",
+    "build": "npm run build:shared && npm run build:sdk && npm run build:edge && npm run build:dashboard",
+    "build:sdk": "npm run build --workspace=@tapistry/sdk",
+    "build:edge": "npm run build --workspace=@tapistry/edge",
+    "build:dashboard": "npm run build --workspace=@tapistry/dashboard",
+    "build:shared": "npm run build --workspace=@tapistry/shared",
+    "test": "npm run test --workspaces",
+    "test:unit": "npm run test:unit --workspaces",
+    "test:e2e": "playwright test",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "rm -rf node_modules packages/*/node_modules packages/*/dist packages/*/.next"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.1.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

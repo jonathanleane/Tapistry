@@ -1,0 +1,32 @@
+{
+  "name": "@tapistry/sdk",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/tapistry.js",
+  "module": "dist/tapistry.esm.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "test": "vitest",
+    "test:unit": "vitest run",
+    "size": "size-limit"
+  },
+  "dependencies": {
+    "@tapistry/shared": "^0.1.0"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.0.0",
+    "jsdom": "^23.0.0",
+    "size-limit": "^11.0.0",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "size-limit": [
+    {
+      "path": "dist/tapistry.js",
+      "limit": "15 KB"
+    }
+  ]
+}
